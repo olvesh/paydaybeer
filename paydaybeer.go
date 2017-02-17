@@ -14,7 +14,7 @@ func main() {
   if (isPaydayWeek && isFriday){
     fmt.Println("Yesss! 🍺  it is Pay 🍹 Day 🍸 Beer! 🍻")
   } else {
-    fmt.Println("Back 😰 to work... 👷🏼")
+    fmt.Println("Back 😰  to work... 👷🏼")
   }
 
 }
