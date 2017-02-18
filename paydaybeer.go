@@ -21,9 +21,15 @@ func isBeerOClock(beertime time.Time) bool {
 	return isBeerday(beertime) && beertime.Hour() >= 16
 }
 
+func isWeekend(weekend time.Time) bool {
+	return weekend.Weekday() == 6 || weekend.Weekday() == 7
+}
+
 func checkPaydayBeerSituation(possibleBeerOClock time.Time) string {
 	
 	switch {
+	case isWeekend(possibleBeerOClock)  :
+		return "Have a nice weekend!"
 	case isPaydayWeek(possibleBeerOClock) && isBeerday(possibleBeerOClock) :
 		return "Yesss! 🍺  it is time for Pay 🍹 Day 🍸 Beer! 🍻"
 		

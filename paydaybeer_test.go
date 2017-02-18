@@ -7,6 +7,7 @@ import (
 )
 
 var someSaturydayAfterPayday = now.MustParse("2017-02-25 15:04")
+var someNormalWorkday = now.MustParse("2017-02-15 15:04")
 var someBoringSaturyday = now.MustParse("2017-02-18 15:04")
 var somePaydayWeek = now.MustParse("2017-02-21 15:04")
 var somePaydayFridayAt15 = now.MustParse("2017-02-24 15:04")
@@ -15,17 +16,21 @@ var someFridayAt15 = now.MustParse("2017-02-17 15:04")
 var someFridayAt16 = now.MustParse("2017-02-17 16:04")
 
 func TestCheckBeerSituation(t *testing.T)  {
-	assert.Contains(t, checkPaydayBeerSituation(someBoringSaturyday), "to work")
-	assert.Contains(t, checkPaydayBeerSituation(someSaturydayAfterPayday), "to work")
+	assert.Contains(t, checkPaydayBeerSituation(someBoringSaturyday), "Have a nice weekend")
+	assert.Contains(t, checkPaydayBeerSituation(someNormalWorkday), "to work")
+	assert.Contains(t, checkPaydayBeerSituation(someSaturydayAfterPayday), "Have a nice weekend")
 	assert.Contains(t, checkPaydayBeerSituation(someFridayAt15), "Getting thirsty")
 	assert.Contains(t, checkPaydayBeerSituation(someFridayAt16), "Weekend here I come")
 	assert.Contains(t, checkPaydayBeerSituation(somePaydayFridayAt15), "Yesss!")
 	assert.Contains(t, checkPaydayBeerSituation(somePaydayFridayAt16), "Yesss!")
 }
 
+func TestWeekend(t *testing.T) {
+	assert.True(t, isWeekend(someSaturydayAfterPayday), "%s", someSaturydayAfterPayday)
+	assert.False(t, isWeekend(someNormalWorkday), "%s", someSaturydayAfterPayday)
+}
 func TestSaturdayAfterPayday(t *testing.T) {
 	assert.False(t, isPaydayWeek(someSaturydayAfterPayday), "%s", someSaturydayAfterPayday)
-	
 }
 
 func TestSomeBoringSaturday(t *testing.T) {
