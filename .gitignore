@@ -22,7 +22,4 @@ _testmain.go
 *.exe
 *.test
 *.prof
-/paydaybeer
-Dockerfile
-Makefile
 paydaybeer
