@@ -14,6 +14,7 @@ build: compile
 	docker build  -t $(NAME):$(VERSION)  .
 
 test: build
+  go test
 	docker run --rm $(NAME):$(VERSION)
 
 tag_latest:
