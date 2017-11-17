@@ -10,7 +10,7 @@ func main() {
 }
 
 func isPaydayWeek(beertime time.Time) bool {
-	return (25 - beertime.Day()) < 7 && beertime.Weekday() <= 5
+	return (18 - beertime.Day()) < 7 && beertime.Weekday() <= 5
 }
 
 func isBeerday(beertime time.Time) bool {

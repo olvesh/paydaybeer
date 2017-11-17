@@ -1,4 +1,4 @@
-DOCKER_PRIVATE_REPO ?= vimond-dockerv2-local.jfrog.io
+DOCKER_PRIVATE_REPO ?= olvesh
 NAME = $(DOCKER_PRIVATE_REPO)/paydaybeer
 VERSION = $(shell git describe --tags --always)
 
